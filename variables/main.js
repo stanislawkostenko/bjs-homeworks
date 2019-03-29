@@ -26,3 +26,12 @@ let averageMark;
 averageMark = (algebra + geography + physics) / 3;
 
 console.log(`Average mark is ${averageMark}`);
+
+// Task 3
+
+let name = 'Mariya Stepanovna';
+let message = (`Hello, world! My name is ${name}.`);
+
+console.log(message);
+
+console.log('COMMENTARIY: Ya pisal vse po angliyski potomu, chto Chrome ne vosprinimal kirilllicu, vmesto nee byli ieroglify.');
