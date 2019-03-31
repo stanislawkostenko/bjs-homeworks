@@ -1,5 +1,7 @@
 'use strict';
 
+// Задание 1
+
 function calculateQuadraticEquation() {
     let a = +window.a.value;
     let b = +window.b.value;
@@ -10,10 +12,28 @@ function calculateQuadraticEquation() {
     span.textContent = "х = "+result;
 }
 
-function getResult(a,b,c){
-    // код для задачи №1 писать здесь
-    //return x;
+function getResult(a, b, c) {
+
+  let discriminant = b ** 2 - 4 * a * c;
+  let rootX;
+
+  if (discriminant < 0) {
+    console.log('Корней нет');
+  } else if (discriminant === 0) {
+    rootX = (((-b + Math.sqrt(discriminant)) / 2 * a));
+    console.log(`Корень уравнения: ${rootX}`);
+    return rootX;
+  } else {
+    let rootX1 = (((-b + Math.sqrt(discriminant)) / 2 * a));
+    let rootX2 = (((-b - Math.sqrt(discriminant)) / 2 * a));
+    rootX = [];
+    rootX.push(rootX1, rootX2);
+    console.log(`Корни уравнения: ${rootX}`);
+    return rootX;
+  }
 }
+
+getResult(a,b,c);
 
 function calculateDrinkTask(){
     let name = window.personName.value;
