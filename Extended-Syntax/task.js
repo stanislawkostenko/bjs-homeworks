@@ -1,6 +1,6 @@
+'use strict';
 
-
-function calculateQuadraticEquation(){
+function calculateQuadraticEquation() {
     let a = +window.a.value;
     let b = +window.b.value;
     let c = +window.c.value;
