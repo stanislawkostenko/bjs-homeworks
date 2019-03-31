@@ -60,13 +60,23 @@ function askDrink(name, dateOfBirthday) {
   return drinkAccess;
 }
 
+// Задание 3
+
 function calculateAverageRating(){
     let marks = window.marks.value.split("").map(Number).filter((n)=> !isNaN(n) && n > 0);
     let averageMark = getAverageMark(marks);
     window.averageMark.textContent = averageMark;
 }
 
-function getAverageMark(marks){
-    // код для задачи №3 писать здесь
-    //return averageMark;
+function getAverageMark(marks) {
+  for (let marks = 0; marks <= 5; marks++) {
+    if (marks.length > 5) {
+      marks.splice(0, 5);
+      console.log(marks);
+    }
+
+    let marksAverage = (marks / marks.length);
+    return marksAverage;
+  }
+    return averageMark;
 }
