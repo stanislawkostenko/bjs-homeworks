@@ -46,8 +46,7 @@ function calculateDrinkTask() {
 
 function askDrink(name, dateOfBirthday) {
 
-  let currentDate = new Date();
-  let ageOfPerson = (currentDate.getFullYear() - dateOfBirthday.getFullYear());
+  let ageOfPerson = new Date().getFullYear() - dateOfBirthday.getFullYear();
 
   let drinkAccess = (ageOfPerson >= 18) ? `Не желаете ли олд-фэшн, ${name}?` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
   console.log(drinkAccess);
