@@ -15,10 +15,11 @@ function calculateQuadraticEquation() {
 function getResult(a, b, c) {
 
   let discriminant = b ** 2 - 4 * a * c;
-  let rootX;
+  let rootX = [];
 
   if (discriminant < 0) {
     console.log('Корней нет');
+    return rootX;
   } else if (discriminant === 0) {
     rootX = (((-b + Math.sqrt(discriminant)) / 2 * a));
     console.log(`Корень уравнения: ${rootX}`);
@@ -26,7 +27,6 @@ function getResult(a, b, c) {
   } else {
     let rootX1 = (((-b + Math.sqrt(discriminant)) / 2 * a));
     let rootX2 = (((-b - Math.sqrt(discriminant)) / 2 * a));
-    rootX = [];
     rootX.push(rootX1, rootX2);
     console.log(`Корни уравнения: ${rootX}`);
     return rootX;
@@ -37,7 +37,7 @@ getResult(a,b,c);
 
 // Задание 2
 
-function calculateDrinkTask(){
+function calculateDrinkTask() {
     let name = window.personName.value;
     let dateOfBirthday = new Date(window.dateOfBirthday.value);
     let drink = askDrink(name, dateOfBirthday);
@@ -62,16 +62,18 @@ function askDrink(name, dateOfBirthday) {
 
 // Задание 3
 
-function calculateAverageRating(){
+function calculateAverageRating() {
     let marks = window.marks.value.split("").map(Number).filter((n)=> !isNaN(n) && n > 0);
     let averageMark = getAverageMark(marks);
     window.averageMark.textContent = averageMark;
 }
 
 function getAverageMark(marks) {
-  for (let marks = 0; marks <= 5; marks++) {
+  //let mark = marks;
+
+  for (let mark = 0; mark <= 5; mark++) {
     if (marks.length > 5) {
-      marks.splice(0, 5);
+      marks.splice(5);
       console.log(marks);
     }
 
