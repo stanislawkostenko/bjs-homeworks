@@ -35,6 +35,8 @@ function getResult(a, b, c) {
 
 getResult(a,b,c);
 
+// Задание 2
+
 function calculateDrinkTask(){
     let name = window.personName.value;
     let dateOfBirthday = new Date(window.dateOfBirthday.value);
@@ -42,10 +44,20 @@ function calculateDrinkTask(){
     window.drink.textContent = drink;
 }
 
-function askDrink(name,dateOfBirthday){
-    // код для задачи №2 писать здесь
-    //console.log(result)
-    //return result;
+function askDrink(name, dateOfBirthday) {
+
+  let yearOfBirthday = dateOfBirthday.getFullYear();
+  console.log(yearOfBirthday);
+  let currentDate = new Date();
+  console.log(currentDate);
+  let currentDateYear = currentDate.getFullYear();
+  console.log(currentDateYear);
+  let ageOfPerson = (currentDateYear - yearOfBirthday);
+  console.log(ageOfPerson);
+
+  let drinkAccess = (ageOfPerson >= 18) ? `Не желаете ли олд-фэшн, ${name}?` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+  console.log(drinkAccess);
+  return drinkAccess;
 }
 
 function calculateAverageRating(){
