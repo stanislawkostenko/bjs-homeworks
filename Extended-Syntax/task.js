@@ -63,16 +63,19 @@ function calculateAverageRating() {
 }
 
 function getAverageMark(marks) {
-  //let mark = marks;
 
   for (let mark = 0; mark <= 5; mark++) {
     if (marks.length > 5) {
       marks.splice(5);
-      console.log(marks);
+      console.log('Количество оценок превысило 5 штук');
     }
 
-    let marksAverage = (marks / marks.length);
+    let marksSummary = 0;
+    marks.forEach(function(value, index) {
+    marksSummary += +value;
+  });
+
+    let marksAverage = (marksSummary  / marks.length);
     return marksAverage;
   }
-    return averageMark;
 }
