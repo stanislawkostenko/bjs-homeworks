@@ -59,16 +59,20 @@ let keyToShyfre4 = {
 
 function getPersonData(secretData) {
 
-  function getPersonName() {
-
-    secretData = keyToShyfre3;
-
-    keyToShyfre3 = {
-      firstName: 'Родриго',
-      lastName: 'Эмильо'
-    }
+  function getPersonName(number) {
+    return (number === 0) ? 'Родриго' : 'Эмильо';
   }
+
+  return { firstName: getPersonName(secretData.aaa),
+    lastName: getPersonName(secretData.bbb)
+  };
+  
 }
+
+console.log(getPersonData(keyToShyfre1));
+console.log(getPersonData(keyToShyfre2));
+console.log(getPersonData(keyToShyfre3));
+console.log(getPersonData(keyToShyfre4));
 
 // Задание 3
 
