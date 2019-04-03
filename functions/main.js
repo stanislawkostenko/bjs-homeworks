@@ -66,7 +66,7 @@ function getPersonData(secretData) {
   return { firstName: getPersonName(secretData.aaa),
     lastName: getPersonName(secretData.bbb)
   };
-  
+
 }
 
 console.log(getPersonData(keyToShyfre1));
@@ -77,36 +77,20 @@ console.log(getPersonData(keyToShyfre4));
 // Задание 3
 
 function getAverageScore(data) {
-
-  //data = { name: value = [] };
-
   for (let prop in data) {
-    let value = data[prop];
+    let value = countAverageValue(data[prop]);
     console.log(`${prop}, ${value}`)
   }
-
-  function countMiddleValue() {
-   let marksSummary = 0;
-   value.forEach(function(value, index) {
-   marksSummary += +value;
-   console.log(marksSummary);
-   });
- }
-
 }
 
+function countAverageValue(...args) {
+  let total = 0;
+  for (let i = 0; i < args.length; i++) {
+    total += args[ i ];
+  }
+  return total / args.length;
+}
 
-
-// function sum(...value in data) {
-//   let total = 0;
-//   for (let i = 0; i < value.length; i++) {
-//     total += value[ i ];
-//   }
-//
-//   let midVal = sum() / value.length;
-//
-// }
-// console.log( sum( 2, 4, 5, 16, 7, 10, 11 )); // 55
 
 getAverageScore({
   alg: [2, 3, 2],
