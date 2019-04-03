@@ -3,46 +3,40 @@
 // Задание 1
 
 function getSolutions(a, b, c) {
-  let x1, x2;
-  let d = b ** 2 - 4 * a * c;
 
-  if (d < 0) {
-    return {
-      d: d,
-    }
-  } else if (d === 0) {
-    x1 = -b / 2 * a;
-    return {
-      roots: x1,
-      d: d
-    }
+  let x1, x2;
+  let D = b ** 2 - 4 * a * c;
+
+  if (D < 0) {
+    return { D };
+  } else if (D === 0) {
+    x1 = -b / (2 * a);
+    return { roots: { x1 }, D };
   } else {
-    x1 = (-b + Math.sqrt(d)) / 2 * a;
-    x2 = (-b - Math.sqrt(d)) / 2 * a;
-    return {
-      roots: {
-        x1: x1,
-        x2: x2
-      },
-      d: d
+    x1 = (-b + Math.sqrt(D)) / (2 * a);
+    x2 = (-b - Math.sqrt(D)) / (2 * a);
+    return { roots: {x1, x2}, D };
     }
   }
-}
 
 function showSolutionsMessage(a, b, c) {
   let result = getSolutions(a, b, c);
 
   console.log(`Вычисляем корни квадратного уравнения ${a}x^2 + ${b}x + ${c}`);
-  console.log(`Значение дискриминанта: ${d}`);
+  console.log(`Значение дискриминанта: ${result.D}`);
 
-  if (d < 0) {
+  if (result.D < 0) {
     console.log('Уравнение не имеет вещественных корней');
-  } else if (d === 0) {
-    console.log(`Уравнение имеет один корень X₁ = ${x1}`);
+  } else if (result.D === 0) {
+    console.log(`Уравнение имеет один корень X₁ = ${result.roots.x1}`);
   } else {
-    console.log(`Уравнение имеет два корня. X₁ = ${x1}, X₂ = ${x2}`);
+    console.log(`Уравнение имеет два корня. X₁ = ${result.roots.x1}, X₂ = ${result.roots.x2}`);
   }
 }
+
+showSolutionsMessage(1,2,3);
+showSolutionsMessage(2,4,2);
+showSolutionsMessage(7,20,-3);
 
 // Задание 2
 
