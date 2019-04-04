@@ -1,3 +1,7 @@
+'use strict';
+
+// Task 1
+
 function calculateMortgage() {
     let percent = window.percent.value;
     let contribution = window.contribution.value;
@@ -15,6 +19,8 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     //return totalAmount;
 }
 
+// Task 2
+
 function sayHello() {
     let name = window.personName.value;
     let greeting = getGreeting(name);
@@ -23,6 +29,12 @@ function sayHello() {
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    //return greeting;
+  
+    if (name = String(name)) {
+      return `Привет, мир! Меня зовут ${name}.`;
+      console.log(`Привет, мир! Меня зовут ${name}.`);
+    } else {
+      return `Аноним`;
+      console.log(`Аноним`);
+    }
 }
