@@ -83,12 +83,12 @@ function getAverageScore(data) {
 
   for (let prop in data) {
     marksAverage[prop] = countAverageValue(data[prop]);
-    marksSummary += countAverageValue(data[prop]);
+    marksSummary += marksAverage[prop];
     counter++;
-    console.log(`${prop}: ${marksAverage[prop]}`);
   }
   let marksAverageTotal = marksSummary / counter;
-  console.log(`average: ${marksAverageTotal}`);
+  marksAverage["average"] = marksAverageTotal;
+  return marksAverage;
 }
 
 function countAverageValue(args) {
@@ -99,7 +99,7 @@ function countAverageValue(args) {
   return total / args.length;
 }
 
-getAverageScore({
+console.log(getAverageScore({
   algebra: [3, 3, 4, 3, 5, 4, 4, 3],
   russian: [4, 5, 3, 5, 5, 5, 3, 4],
   geometry: [5, 4, 5, 5, 4, 4, 3, 3],
@@ -110,4 +110,4 @@ getAverageScore({
   geography: [5, 4, 4, 5, 4, 5, 5, 5],
   french: [3, 4, 4, 4, 4, 3, 4, 3],
   biology: [5, 3, 3, 4, 3, 4, 4, 4]
-});
+}));
