@@ -1,3 +1,7 @@
+'use strict';
+
+// Task 1
+
 function calculateMortgage() {
     let percent = window.percent.value;
     let contribution = window.contribution.value;
@@ -10,10 +14,14 @@ function calculateMortgage() {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-
-    // код для задачи №1 писать здесь
-    //return totalAmount;
+  date = ((date.getFullYear() * 12) - (new Date().getFullYear() * 12));
+  let monthPaying = amount * ((percent / 12) + (percent / 12) / (((1 + (percent / 12)) ** date) - 1));
+  let totalAmount = ((monthPaying * date) - contribution);
+  return totalAmount;
+  console.log(totalAmount);
 }
+
+// Task 2
 
 function sayHello() {
     let name = window.personName.value;
@@ -23,6 +31,12 @@ function sayHello() {
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    //return greeting;
+
+    if (name = String(name)) {
+      return `Привет, мир! Меня зовут ${name}.`;
+      console.log(`Привет, мир! Меня зовут ${name}.`);
+    } else {
+      return `Аноним`;
+      console.log(`Аноним`);
+    }
 }
