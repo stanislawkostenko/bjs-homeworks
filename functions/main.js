@@ -77,13 +77,21 @@ console.log(getPersonData(keyToShyfre4));
 // Задание 3
 
 function getAverageScore(data) {
+  let marksAverage = new Object();
+  let marksSummary = 0;
+  let counter = 0;
+
   for (let prop in data) {
-    let value = countAverageValue(data[prop]);
-    console.log(`${prop}, ${value}`)
+    marksAverage[prop] = countAverageValue(data[prop]);
+    marksSummary += countAverageValue(data[prop]);
+    counter++;
+    console.log(`${prop}: ${marksAverage[prop]}`);
   }
+  let marksAverageTotal = marksSummary / counter;
+  console.log(`average: ${marksAverageTotal}`);
 }
 
-function countAverageValue(...args) {
+function countAverageValue(args) {
   let total = 0;
   for (let i = 0; i < args.length; i++) {
     total += args[ i ];
@@ -91,8 +99,15 @@ function countAverageValue(...args) {
   return total / args.length;
 }
 
-
 getAverageScore({
-  alg: [2, 3, 2],
-  fgf: [4, 5, 2, 3, 4]
+  algebra: [3, 3, 4, 3, 5, 4, 4, 3],
+  russian: [4, 5, 3, 5, 5, 5, 3, 4],
+  geometry: [5, 4, 5, 5, 4, 4, 3, 3],
+  literature: [3, 3, 4, 3, 5, 3, 3, 4],
+  physics: [4, 5, 4, 5, 3, 3, 4, 5],
+  chemistry: [5, 5, 5, 4, 5, 4, 5, 5],
+  english: [4, 4, 4, 5, 4, 3, 5, 4],
+  geography: [5, 4, 4, 5, 4, 5, 5, 5],
+  french: [3, 4, 4, 4, 4, 3, 4, 3],
+  biology: [5, 3, 3, 4, 3, 4, 4, 4]
 });
