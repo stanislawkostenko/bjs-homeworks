@@ -14,8 +14,8 @@ function calculateMortgage() {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-  let monthQuantity = (date.getFullYear(date) * 12) - (new Date().getFullYear() * 12);
-  let monthPaying = amount * ((percent / 12) + (percent / 12) / (((1 + (percent / 12)) ** monthQuantity) - 1));
+  let monthQuantity = ((new Date(date).getFullYear() * 12) - (new Date().getFullYear() * 12));
+  let monthPaying = amount * (((percent / 100) / 12) + ((percent / 100) / 12) / (((1 + ((percent / 100) / 12)) ** monthQuantity) - 1));
   let totalAmount = ((monthPaying * monthQuantity) - contribution);
   console.log(totalAmount);
   return totalAmount;
