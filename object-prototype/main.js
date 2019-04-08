@@ -10,14 +10,13 @@ function initCheckBirthday() {
 
 function checkBirthday(birthday) {
     let now = +new Date();
-    let userBirthday = new Date(2001, 1, 21);
-    userBirthday = +new Date();
+    let userBirthday = +new Date(birthday);
     let diff = now - userBirthday;
     let age = diff / 31536000000;
     if (age >= 18) {
-      return checkBirthday(birthday) = "Да";
+      return true;
     } else {
-      return checkBirthday(birthday) = "Нет"
+      return false;
     }
 }
 
