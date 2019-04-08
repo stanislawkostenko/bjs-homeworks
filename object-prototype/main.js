@@ -10,7 +10,7 @@ function initCheckBirthday() {
 
 function checkBirthday(birthday) {
     let now = +new Date();
-    userBirthday = new Date(2001, 1, 21);
+    let userBirthday = new Date(2001, 1, 21);
     userBirthday = +new Date();
     let diff = now - userBirthday;
     let age = diff / 31536000000;
@@ -34,9 +34,8 @@ function initPrintAnimalSound() {
 }
 
 function getAnimalSound(animal) {
-    getAnimalSound.prototype = animal;
     let sound = animal.sound;
-    if (animal = Object(undefined)) {
+    if (!animal) {
       return null;
     } else {
       return sound;
