@@ -57,7 +57,7 @@ function getAverageMark(marks) {
 
     let average = 0;
     for (let i = 0; i < marks.length; i++) {
-      average += marks[ i ];
+      average += Number(marks[ i ]);
     }
     average = average / marks.length;
     let roundedAverage = Math.round(average);
