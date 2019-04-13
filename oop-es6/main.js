@@ -39,13 +39,36 @@ class StudentLog {
     }
   }
 
+  // getTotalAverage() {
+  //   let sum = 0;
+  //   for (let i = 0; i < this.grade.length; i++) {
+  //     sum += this.grade[i];
+  //   }
+  //   return sum / this.grade.length;
+  // }
+
   getTotalAverage() {
-    let sum = 0;
-    for (let i = 0; i < this.grade.length; i++) {
-      sum += this.grade[i];
-    }
-    return sum / this.grade.length;
-  }
+     let marksSummary = 0;
+     let counter = 0;
+
+     for (let prop in this.grade) {
+       this.grade[prop] = countAverageValue(this.grade[prop]);
+       marksSummary += this.grade[prop];
+       counter++;
+     }
+
+      let marksAverageTotal = marksSummary / counter;
+     this.grade["average"] = marksAverageTotal;
+     return this.grade;
+
+      function countAverageValue(args) {
+       let total = 0;
+       for (let i = 0; i < args.length; i++) {
+         total += args[ i ];
+       }
+       return total / args.length;
+     }
+   }
 
 }
 
