@@ -1,3 +1,156 @@
+// Task 1
+
+class Weapon {
+
+    constructor(object) {
+        this.name = object.name;
+        this.attack = object.attack;
+        this.durability = object.durability;
+        this.range = object.range;
+    }
+
+    takeDamage(damage) {
+        if (damage <= this.durability) {
+            this.durability -= damage;
+        } else {
+            this.durability = 0;
+        }
+    }
+
+    getDamage() {
+        if (this.durability >= (this.durability *= 0.3)) {
+            return this.attack;
+        } else if (this.durability == 0) {
+            return 0;
+        } else {
+            return this.attack /= 2;
+        }
+    }
+
+    isBroken() {
+        if (this.durability == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
+const oldSword = new Weapon({
+  name: 'Старый меч',
+  attack: 20,
+  durability: 10,
+  range: 1
+});
+
+const sword = new Weapon({
+  name: 'Меч',
+  attack: 25,
+  durability: 500,
+  range: 1
+})
+
+const arm = new Weapon({
+  name: 'Рука',
+  attack: 1,
+  durability: Infinity,
+  range: 1
+});
+
+const bow = new Weapon({
+  name: 'Лук',
+  attack: 10,
+  durability: 200,
+  range: 3
+});
+
+const knife = new Weapon({
+  name: 'Нож',
+  attack: 5,
+  durability: 300,
+  range: 1
+})
+
+const staff = new Weapon({
+  name: 'Посох',
+  attack: 8,
+  durability: 300,
+  range: 2
+})
+
+const longBow = new Weapon({
+  name: 'Длинный лук',
+  attack: 15,
+  durability: bow.durability,
+  range: 4
+})
+
+const battleAxe = new Weapon({
+  name: 'Секира',
+  attack: 27,
+  durability: 800,
+  range: sword.range
+})
+
+const stormStaff = new Weapon({
+  name: 'Посох бури',
+  attack: 10,
+  durability: staff.durability,
+  range: 3
+})
+
+
+
+oldSword.takeDamage(5);
+console.log(oldSword.durability);
+oldSword.takeDamage(50);
+console.log(oldSword.durability);
+
+arm.takeDamage(20);
+console.log(arm.durability);
+
+bow.takeDamage(20);
+console.log(bow.durability);
+bow.takeDamage(200);
+console.log(bow.durability);
+
+
+
+console.log(bow.durability);
+console.log(bow.getDamage());
+
+console.log(arm.durability);
+console.log(bow.getDamage());
+
+
+
+console.log(bow.durability); // 0
+console.log(bow.isBroken()); // true
+
+console.log(arm.durability); // Infinity
+console.log(bow.isBroken()); // false
+
+// Task 2
+
+class Saber extends Weapon {
+    constructor() {
+        super({
+            name: 'Сабля',
+            attack: 22,
+            durability: 40,
+            range: 1
+          });
+        }
+      };
+
+const catana = new Saber();
+
+console.log(catana.name);
+console.log(catana.attack);
+console.log(catana.durability);
+console.log(catana.range);
+
 // Task 3
 
 class StudentLog {
@@ -24,6 +177,12 @@ class StudentLog {
     this.grade.push({grade: grade, subject: subject});
     return this.grade.length;
   }
+
+
+
+/* В МЕТОДАХ НИЖЕ Я ЗАПУТАЛСЯ */
+
+
 
   getAverageBySubject(subject) {
     if (subject === this.grade.subject) {
