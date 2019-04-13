@@ -5,7 +5,6 @@ class StudentLog {
   constructor(name) {
     this.name = name;
     this.grade = new Array();
-    //this.subject = subject;
   }
 
   getName() {
@@ -22,39 +21,31 @@ class StudentLog {
       console.log(`Ошибка! Вы пытались поставить оценку "${grade}" по предмету "${subject}". Допустимый формат оценки: 0-5.`);
       return this.grade.length;
     }
-    this.grade.push(grade);
+    this.grade.push({grade: grade, subject: subject});
     return this.grade.length;
   }
 
   getAverageBySubject(subject) {
-    if (this.grade.length === 0) {
-      return 0;
+    if (subject === this.grade.subject) {
+      if (this.grade.length === 0) {
+        return 0;
+      }
+      let average = 0;
+      for (let i = 0; i < this.grade.subject.length; i++) {
+        average += this.grade.subject[i];
+      }
+      average = average / this.grade.subject.length;
+      return average;
     }
-    let average = 0;
-    for (let i = 0; i < this.grade.length; i++) {
-      average += this.grade[i];
-    }
-    average = average / this.grade.length;
-    return average;
   }
 
-  // getTotalAverage() {
-  //   let marksAverage = new Object();
-  //   let marksSummary = 0;
-  //   let counter = 0;
-  //
-  //   let marksAverageTotal = marksSummary / counter;
-  //   marksAverage["average"] = marksAverageTotal;
-  //   return marksAverage;
-  //
-  //   function countAverageValue(args) {
-  //     let total = 0;
-  //     for (let i = 0; i < args.length; i++) {
-  //       total += args[ i ];
-  //     }
-  //     return total / args.length;
-  //   }
-  // }
+  getTotalAverage() {
+    let sum = 0;
+    for (let i = 0; i < this.grade.length; i++) {
+      sum += this.grade[i];
+    }
+    return sum / this.grade.length;
+  }
 
 }
 
@@ -81,4 +72,4 @@ console.log(log.getAverageBySubject('algebra'));
 console.log(log.getAverageBySubject('russian'));
 console.log(log.getAverageBySubject('english'));
 
-// console.log(log.getTotalAverage());
+console.log(log.getTotalAverage());
