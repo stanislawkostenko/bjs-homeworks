@@ -254,7 +254,7 @@ class StudentLog {
 
   constructor(name) {
     this.name = name;
-    this.grade = new Array();
+    this.grade = [];
   }
 
   getName() {
@@ -275,56 +275,35 @@ class StudentLog {
     return this.grade.length;
   }
 
-
-
-/* В МЕТОДАХ НИЖЕ Я ЗАПУТАЛСЯ */
-
-
-
   getAverageBySubject(subject) {
-    if (subject === this.grade.subject) {
-      if (this.grade.length === 0) {
-        return 0;
+    let summary = 0;
+    let counter = 0;
+    for (let i=0; i < this.grade.length; i++) {
+      if (this.grade[i].subject == subject) {
+        summary += this.grade[i].grade;
+        counter++;
       }
-      let average = 0;
-      for (let i = 0; i < this.grade.subject.length; i++) {
-        average += this.grade.subject[i];
-      }
-      average = average / this.grade.subject.length;
-      return average;
+    }
+    if (counter > 0) {
+      return summary / counter;
+    } else {
+      return counter;
     }
   }
 
-  // getTotalAverage() {
-  //   let sum = 0;
-  //   for (let i = 0; i < this.grade.length; i++) {
-  //     sum += this.grade[i];
-  //   }
-  //   return sum / this.grade.length;
-  // }
-
   getTotalAverage() {
-     let marksSummary = 0;
-     let counter = 0;
-
-     for (let prop in this.grade) {
-       this.grade[prop] = countAverageValue(this.grade[prop]);
-       marksSummary += this.grade[prop];
-       counter++;
-     }
-
-      let marksAverageTotal = marksSummary / counter;
-     this.grade["average"] = marksAverageTotal;
-     return this.grade;
-
-      function countAverageValue(args) {
-       let total = 0;
-       for (let i = 0; i < args.length; i++) {
-         total += args[ i ];
-       }
-       return total / args.length;
-     }
-   }
+    let summary = 0;
+    let counter = 0;
+    for (let i=0; i < this.grade.length; i++) {
+        summary += this.grade[i].grade;
+        counter++;
+    }
+    if (counter > 0) {
+      return summary / counter;
+    } else {
+      return counter;
+    }
+  }
 
 }
 
