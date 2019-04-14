@@ -7,6 +7,7 @@ class Weapon {
         this.attack = object.attack;
         this.durability = object.durability;
         this.range = object.range;
+        this.defaultDurability = object.durability;
     }
 
     takeDamage(damage) {
@@ -18,7 +19,7 @@ class Weapon {
     }
 
     getDamage() {
-        if (this.durability >= (this.durability *= 0.3)) {
+        if (this.durability >= (this.defaultDurability * 0.3)) {
             return this.attack;
         } else if (this.durability == 0) {
             return 0;
@@ -28,11 +29,7 @@ class Weapon {
     }
 
     isBroken() {
-        if (this.durability == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.durability == 0;
     }
 
 }
